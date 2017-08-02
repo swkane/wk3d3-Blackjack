@@ -36,21 +36,28 @@ function handValue (hand) {
     handTotal += card1;
   }
   if (handTotal > 21) {
-    // if (hand[1] === 11) {
-      handTotal -= 10;
-      return handTotal;
-    // } else {
-    //   return (handTotal);
-    // }
+    remove10perAce();
+    return handTotal;
+  } else {
+    return handTotal;
   }
-  return handTotal;
 }
+
+function remove10perAce() {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === 11) {
+      handTotal -= 10;
+    }
+  }
+}
+
+
 
 // console.log(handValue(["3"]));
 // console.log(handValue(["2","2","8"]));
 // console.log(handValue(["2","2","K"]));
 // console.log(handValue(["2","A","K"]));
-// console.log(handValue(["8", "A", "J"]));
+// console.log(handValue(["8", "A", "A", "J"]));
 
 
 
