@@ -36,20 +36,30 @@ function handValue (hand) {
     handTotal += card1;
   }
   if (handTotal > 21) {
-    remove10perAce();
+    // remove10perAce();
+    while (handTotal > 21) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] === 11) {
+          handTotal -= 10;
+        }
+      }
+    }
     return handTotal;
   } else {
     return handTotal;
   }
 }
 
-function remove10perAce() {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] === 11) {
-      handTotal -= 10;
-    }
-  }
-}
+//  build in logic for only remove aces as long as handTotal > 21, then stop removing aces - while loop
+// function remove10perAce() {
+  // while (handTotal > 21) {
+    // for (var i = 0; i < array.length; i++) {
+    //   if (array[i] === 11) {
+    //     handTotal -= 10;
+    //   }
+    // }
+  // }
+// }
 
 
 
